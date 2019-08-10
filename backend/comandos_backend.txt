@@ -1,0 +1,32 @@
+yarn init -y
+
+yarn add express
+
+yarn add nodemon -D
+
+# At package.json
+"license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+
+# Execute server
+yarn dev
+
+# ODM - ferramenta para facilitar acesso ao banco de dados
+yarn add mongoose
+
+# MongoDB Atlas
+mongodb+srv://omnistack:<password>@cluster0-xmyjr.mongodb.net/test?retryWrites=true&w=majority
+
+# Api access
+yarn add axios
+
+# Api github
+https://api.github.com/users/diego3g
+
+# Acessar mongodb Atlas
+https://www.mongodb.com/download-center/compass?jmp=hero
+
+# External access
+yarn add cors

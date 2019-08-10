@@ -1,0 +1,12 @@
+# Cria o projeto reactjs
+yarn create react-app frontend
+
+# ou
+npx create-react-app frontend
+
+cd frontend
+yarn start
+
+yarn add react-router-dom
+
+yarn add axios

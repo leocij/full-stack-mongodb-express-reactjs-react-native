@@ -1,0 +1,75 @@
+# Cria o projeto pelo intellij e escolha npx --package react-native-cli react-native
+# Comando usado pelo intellij:
+/usr/local/bin/node /usr/local/lib/node_modules/react-native-cli start
+/usr/local/bin/node /usr/local/lib/node_modules/react-native-cli run-android
+
+# Instale e abra o genymotion emulator.
+
+# Execute pelo intellij, se der erro abra a pasta android dentro android studio e execute e depois execute pelo intellij novamente.
+
+# Obs: somente para lembrar e caso for preciso.
+npx react-native init mobile
+yarn start
+yarn react-native run-android
+
+# Dê reload no emulator:
+1 - Clica dentro do emulador e digite rr rápido.
+2 - Se o comando anterior não der, vá no terminal e digite: adb shell input text "RR"
+
+# Abrir o menu de opções no emulador.
+1 - ctrl + m
+2 - Se o comando anterior não der, vá no terminal e digite: adb shell input keyevent 82
+
+
+# Modulos extras
+yarn add react-navigation react-native-gesture-handler react-native-reanimated
+
+# Configurar react-native-gesture-handler no android
+# Cole dentro do arquivo MainActivity.java
+# /home/linux/Aula/RocketSeat/OmniStack/mobile/android/app/src/main/java/com/mobile/MainActivity.java
+
+package com.mobile;
+
+import com.facebook.react.ReactActivity;
+
+import com.facebook.react.ReactActivityDelegate;
+import com.facebook.react.ReactRootView;
+import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+
+public class MainActivity extends ReactActivity {
+
+  @Override
+  protected String getMainComponentName() {
+    return "mobile";
+  }
+
+  @Override
+  protected ReactActivityDelegate createReactActivityDelegate() {
+    return new ReactActivityDelegate(this, getMainComponentName()) {
+      @Override
+      protected ReactRootView createRootView() {
+      return new RNGestureHandlerEnabledRootView(MainActivity.this);
+      }
+    };
+  }
+
+}
+
+# Após copiar as opções acima reinicie o projeto no intellij ou rode o comando em outro editor:
+yarn react-native run-android
+
+# Obs:
+# createStackNavigator -> pode implementar opção de voltar
+# createSwitchNavigator -> não tem como implementar opção de voltar
+# createBottomTabNavigator -> cria navegação com abas embaixo
+# createMaterialTopTabNavigator -> cria navegação com abas à esquerda
+# createDrawerNavigator -> cria uma navegação por drawer à esquerda
+
+# Instale o axios para chamadas de api
+yarn add axios
+
+# Configuração para acessar pelo localhost da máquina ao invés de navegar por ip no axios
+adb reverse tcp:3333 tcp:3333
+
+# Armazenamento de chave valor
+yarn add @react-native-community/async-storage
