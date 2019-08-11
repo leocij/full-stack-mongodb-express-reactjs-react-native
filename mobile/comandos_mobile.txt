@@ -73,3 +73,5 @@ adb reverse tcp:3333 tcp:3333
 
 # Armazenamento de chave valor
 yarn add @react-native-community/async-storage
+
+yarn add socket.io-client
